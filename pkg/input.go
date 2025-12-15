@@ -1,6 +1,7 @@
 package util
 
 import (
+	"bytes"
 	"fmt"
 	"os"
 )
@@ -26,5 +27,5 @@ func ReadInput(part Part) []byte {
 	if err != nil {
 		panic(fmt.Errorf("could not read input: %w", err))
 	}
-	return f
+	return bytes.Trim(f, "\n")
 }
