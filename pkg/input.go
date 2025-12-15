@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"fmt"
 	"os"
+	"strconv"
 )
 
 type Part int
@@ -28,4 +29,17 @@ func ReadInput(part Part) []byte {
 		panic(fmt.Errorf("could not read input: %w", err))
 	}
 	return bytes.Trim(f, "\n")
+}
+
+func ToInts(inp []byte) ([]int, error) {
+	sinp := string(inp)
+	res := make([]int, len(sinp))
+	for i, c := range sinp {
+		v, err := strconv.Atoi(string(c))
+		if err != nil {
+			return nil, err
+		}
+		res[i] = v
+	}
+	return res, nil
 }
