@@ -56,7 +56,7 @@ func IsValidP2Repeating(id []byte) bool {
 func InvalidInRange(ran []byte, validator func([]byte) bool) []int {
 	l, r, ok := bytes.Cut(ran, []byte("-"))
 	if !ok {
-		panic(fmt.Errorf("input did not have expected seperator: %s", ran))
+		panic(fmt.Errorf("input did not have expected separator: %s", ran))
 	}
 	li, err := strconv.Atoi(string(l))
 	if err != nil {
@@ -64,7 +64,7 @@ func InvalidInRange(ran []byte, validator func([]byte) bool) []int {
 	}
 	ri, err := strconv.Atoi(string(r))
 	if err != nil {
-		panic(fmt.Errorf("input was not a valid number: %s - %w", l, err))
+		panic(fmt.Errorf("input was not a valid number: %s - %w", r, err))
 	}
 	results := make([]int, 0)
 	for i := li; i <= ri; i++ {
