@@ -15,7 +15,7 @@ func TestP2(t *testing.T) {
 .@@@@@@@@.
 @.@.@@@.@.`)
 		res := p2(inp)
-		exp := 3121910778619
+		exp := 43
 		if res != exp {
 			t.Fatalf("got wrong result, expected %d, got %d", exp, res)
 		}
