@@ -2,17 +2,19 @@ package main
 
 import (
 	"fmt"
+
+	util "github.com/gitznik/aoc/pkg"
 )
 
 func p1(inp []byte) int {
 	total := 0
-	g := NewGrid(inp)
+	g := util.NewGrid(inp, func(r rune) rune { return r })
 	for y, r := range g {
 		for x := range r {
 			if v, err := g.GetItem(x, y); err != nil || v != '@' {
 				continue
 			}
-			if g.BlockedNeighbors(x, y) < 4 {
+			if BlockedNeighbors(g, x, y) < 4 {
 				total++
 			}
 		}
